@@ -12,3 +12,9 @@ io.on('connection', socket => {
         users[soket.id]})
     })
 })
+
+io.on('dc', () => {
+    socket.on('new-user', name => {
+        socket.broadcast.emit('dc-user', users[socket.id])
+        delete users[socket.id]
+    })
