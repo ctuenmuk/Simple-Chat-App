@@ -9,7 +9,7 @@ io.on('connection', socket => {
     })
     socket.on('send-chat-message', message =>{
         socket.broadcast.emit('chat-message', { message: message, name:
-        users[soket.id]})
+        users[socket.id]})
     })
 })
 
@@ -18,3 +18,4 @@ io.on('dc', () => {
         socket.broadcast.emit('dc-user', users[socket.id])
         delete users[socket.id]
     })
+})

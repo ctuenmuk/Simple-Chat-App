@@ -22,7 +22,7 @@ messageform.addEventListener('submit', i => {
     i.preventDefault()
     const message = messageInput.value
     socket.emit('send-chat-message',message)
-    appendmessage(`$You ${message}`)
+    appendmessage(`You ${message}`)
     messageInput.value =''
 })
 
