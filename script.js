@@ -7,7 +7,7 @@ const name = prompt('what is you name?')
 appendmessage('You have joined the chat!')
 socket.emit('new-user', name)
 
-socket.on('user-connected', name => {
+socket.on('connected-user', name => {
     appendmessage(`${name} connected`)
 })
 
@@ -16,8 +16,8 @@ socket.on('chat-message', data => {
     appendmessage(`${data.name}: ${data.message}`)
 })
 
-messageform.addEventListener('submit', e => {
-    e.preventDefault()
+messageform.addEventListener('submit', i => {
+    i.preventDefault()
     const message = messageInput.value
     socket.emit('send-chat-message',message)
     messageInput.value =''
